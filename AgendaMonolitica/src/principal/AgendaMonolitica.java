@@ -3,26 +3,25 @@ package principal;
 
 import java.io.IOException;
 
-import iu.InterfazLC;
-import negocio.Persona;
+import iu.*;
+import negocio.*;
 
 public class AgendaMonolitica {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		String Nombre = null;
-		String Apellido1 = null;
-		String Apellido2 = null;
+		
+		MenuAgenda ma = new MenuAgenda();
+		
 		InterfazLC lc = new InterfazLC();
-		try {
-			Nombre = lc.LeerCadena("Inserte su nombre:");
-			Apellido1 = lc.LeerCadena("Inserte su primer apellido:");
-			Apellido2 = lc.LeerCadena("Inserte su segundo apellido:");
-			Persona ismael = new Persona (Nombre, Apellido1, Apellido2);
-			lc.EscribirCadena("Hola "+ ismael.toString());
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		
+		OpcionesMenu Opcion= OpcionesMenu.NOOPCION;
+		
+		while (Opcion != OpcionesMenu.SALIR) {
+			ma.MostrarMenu();
+			//Opcion = OpcionesMenu.valueOf((int)lc.LeerEntero("Escoja una opcion"));
+			Opcion = ma.LeerOpcionMenu();
+			ma.ProcesarMenu(Opcion);
 		}
 		
 	}

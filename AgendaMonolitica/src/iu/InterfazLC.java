@@ -3,6 +3,7 @@ package iu;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Scanner;
 
 public class InterfazLC {
 
@@ -17,6 +18,15 @@ public class InterfazLC {
 		BufferedReader br = new BufferedReader (isr);
 		CadenaLeida = br.readLine();
 		return CadenaLeida;
+		
+	}
+	
+	public int LeerEntero (String sCadena) {
+		int Valor;
+		this.EscribirCadena(sCadena);
+		Scanner sc = new Scanner(System.in);
+		Valor = sc.nextInt();
+		return Valor;
 		
 	}
 }
